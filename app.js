@@ -16,8 +16,5 @@ app.set("view engine", "ejs");
 
 app.use("/", home);
 
-app.listen(PORT, function () {
-    console.log("server installed");
-});
-
+module.exports = app;
 
