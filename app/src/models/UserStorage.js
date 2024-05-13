@@ -1,9 +1,8 @@
 "use strict";
 
 const fs = require("fs").promises;
-
+const dbDir = "./src/databases/USers.json";
 class UserStorage {
-        
     static #getUserInfo(data,id) {
         const users = JSON.parse(data);
         const idx = users.id.indexOf(id);
@@ -16,8 +15,11 @@ class UserStorage {
         return userInfo;
     }
     
-    static getusers(...fields) {
-        // const users = this.#users;
+    static #getUsers(data, isAll, fields) {
+        const users = JSON.parse(data);
+        if (isAll) return users;
+
+
         const newUsers = fields.reduce((newUsers, field) => {
             if (users.hasOwnProperty(field)){
                 newUsers[field] = users[field];
@@ -26,10 +28,18 @@ class UserStorage {
         },{});
         return newUsers;
     }
+    static getUsers(isAll,...fields) {
+        return fs
+          .readFile(dbDir)
+          .then((data) => {
+            return this.#getUsers(data, isAll, fields);
+          })
+          .catch(console.log);      
+    }
 
     static getUserInfo(id){
         return fs
-          .readFile("./src/databases/USers.json")
+          .readFile(dbDir)
           .then((data) => {
             return this.#getUserInfo(data,id);
           })
@@ -38,14 +48,17 @@ class UserStorage {
 
     
 
-    static save(userInfo) {
-        console.log(userInfo);
-        // const users = this.#users;
+    static async save(userInfo) {
+        const users = await this.getUsers(true);
+        if (users.id.includes(userInfo.id)) {
+            throw "it is already existing id";
+        }
         users.id.push(userInfo.id);
-        users.email.push(userInfo.email);
         users.psword.push(userInfo.psword);
-        return {success: true};
-
+        users.email.push(userInfo.email);
+        fs.writeFile(dbDir,JSON.stringify(users));
+        console.log(1)
+        return { success: true };
     }
 }
 
