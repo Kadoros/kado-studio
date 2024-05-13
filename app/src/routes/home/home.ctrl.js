@@ -29,12 +29,8 @@ const process = {
 
     register: async (req,res) => {
         const user = new User(req.body);
-        try{
-            const response = await user.register();
-            return res.json(response);
-        } catch (err){
-            return { success: false, msg: err};
-        }    
+        const response = await user.register();
+        return res.json(response);
     },
 }
 
