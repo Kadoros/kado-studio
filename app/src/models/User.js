@@ -7,19 +7,23 @@ class User{
         this.body = body;
     }
 
-    login() {
-        const body = this.body;
-        console.log(body.id);
-        const {id,psword} = UserStorage.getUserInfo(body.id);
-        console.log("s");
-        console.log(id, psword);
+    async login() {
+        const client = this.body;
+        console.log(client.id);
+        const {id,psword} = await UserStorage.getUserInfo(client.id);
         if (id){
-            if (id === body.id && psword === body.psword){
+            if (id === client.id && psword === client.psword){
                 return { success: true };
             }
             return { success: false, msg: "wrong password"};
         }
         return { success: false, msg: "it is not defined id"};
+    }
+
+    register() {
+        const client = this.body;
+        const response = UserStorage.save(client);
+        return response;
     }
 }
 
