@@ -30,6 +30,6 @@ function login() {
         }
       })
       .catch((err) =>{
-        console.err(new Error("login error"))
+        console.error(new Error("login error"))
       });
 };
