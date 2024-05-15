@@ -1,0 +1,45 @@
+.main-nav {
+  background-color: #fff; /* White background color */
+  padding: 10px 20px; /* Add padding to the top and bottom */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+  justify-content: space-between; /* Space items evenly */
+}
+
+.logo {
+  height: 50px; /* Adjust the height of the logo */
+  vertical-align: middle;
+  margin-right: 50px
+}
+
+.main-menu {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.main-menu li {
+  display: inline-block; /* Display menu items inline */
+  margin-right: 20px; /* Add spacing between menu items */
+}
+
+.main-menu li a {
+  color: #42A5FF; /* Blue text color */
+  text-decoration: none; /* Remove underline from links */
+  padding: 5px 10px; /* Add padding to links */
+  font-size: 20px;
+}
+
+.main-menu li a:hover {
+  background-color: #f0f0f0; /* Light gray background color on hover */
+}
+
+.login-btn {
+  background-color: #42A5FF; /* Blue background color */
+  color: #fff; /* White text color */
+  padding: 8px 16px; /* Add padding to the button */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Add border radius */
+  text-decoration: none; /* Remove underline */
+  font-size: 20px;
+}

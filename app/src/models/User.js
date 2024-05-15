@@ -10,14 +10,16 @@ class User{
     async login() {
         const client = this.body;
         try {
-            const { userKey, id , email, psword, in_date} = await UserStorage.getUserInfo(client.id);
-            if (id){
+            const user = await UserStorage.getUserInfo(client.id);
+            
+            if (user !== undefined){
+                const { userKey, id , email, psword, in_date} = user;
                 if (id === client.id && psword === client.psword){
                     return { success: true };
                 }
                 return { success: false, msg: "wrong password"};
             }
-            return { success: false, msg: "it is not defined id"};
+            return { success: false, msg: "wrong ID"};
         }
         catch (err) {
             return {success: false, msg: err};
