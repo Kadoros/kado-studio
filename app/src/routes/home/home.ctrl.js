@@ -7,39 +7,56 @@ const logger = require("../../config/logger");
 
 const output = {
     home: (req, res) => {
-        logger.info(`GET / 200 "go to home"`);
+        logger.info(`GET / 304 "go to home"`);
         res.render("home/index"); 
     },
     
     login: (req, res) => {
-        logger.info(`GET /login 200 "go to login"`);
+        logger.info(`GET /login 304 "go to login"`);
         res.render("home/login");
     },
 
     register: (req, res) => {
-        logger.info(`GET /register 200 "go to register"`);
+        logger.info(`GET /register 304 "go to register"`);
         res.render("home/register");
     },
-
-
 };
 
 const process = {
     login: async (req,res) =>  {
         const user = new User(req.body);
         const response = await user.login();
-        logger.info(`POST /login 200 Response: "success: ${response.success}, msg: ${response.msg}"`);
-        return res.json(response);
+        const url = {
+            method: "POST",
+            path: "/login",
+            status: response.err ? 400 : 200,
+        };
+        log(response, url);
+        return res.status(url.status).json(response);
     },
 
     register: async (req,res) => {
         const user = new User(req.body);
         const response = await user.register();
-        logger.info(`POST /response 200 Response: "success: ${response.success}, msg: ${response.msg}"`);
-        return res.json(response);
+        const url = {
+            method: "POST",
+            path: "/register",
+            status: response.err ? 409 : 201,
+        };
+        log(response,url);
+        return res.status(url.status).json(response);
     },
 }
 
+const log = (response,url) => {
+    if (response.err) {
+        logger.error(
+            `${url.method} ${url.path} ${url.status} Response: ${response.success} ${response.err}`
+        );
+    } else { 
+        logger.info(`${url.method} ${url.path} ${url.status} Response: ${response.success} ${response.msg || ""}`);
+    }
+};
 
 module.exports = {
     output,
