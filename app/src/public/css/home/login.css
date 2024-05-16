@@ -18,7 +18,7 @@
 }
 
 .form input {
-  font-family: "Roboto", sans-serif;
+  
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -30,7 +30,7 @@
 }
 
 .form #button {
-  font-family: "Roboto", sans-serif;
+  
   text-transform: uppercase;
   outline: 0;
   background: #42A5FF; /* Updated color */
@@ -109,7 +109,7 @@
 
 body {
   background: #296cab; /* Updated background color */
-  font-family: "Roboto", sans-serif;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

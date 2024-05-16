@@ -11,13 +11,12 @@ const dotenv = require("dotenv");
 const app = express();
 dotenv.config();
 
-const PORT = 3000;
+
 
 //routing
 const home = require("./src/routes/home");
 
-const logger =  require("./src/config/logger")
-logger.log("error", "hello");
+
 
 //app setting 
 app.set("views", "./src/views");
