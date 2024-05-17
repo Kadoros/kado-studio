@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManageBac Style Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f4f4f4;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+        }
+        .sidebar h1 {
+            font-size: 18px;
+            margin: 0 0 20px 0;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+        }
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+        }
+        .header {
+            background-color: #6200ea;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .task-card {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .task-card h2 {
+            margin: 0 0 10px 0;
+        }
+        .task-card p {
+            margin: 10px 0;
+        }
+        .dropbox, .discussions {
+            margin: 20px 0;
+        }
+        .dropbox button, .discussions button {
+            background-color: #6200ea;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>The Prague British International School</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Exams Planner</a></li>
+            <li><a href="#">IB Manager</a></li>
+            <li><a href="#">Classes</a></li>
+            <li><a href="#">Groups</a></li>
+            <li><a href="#">Explore</a></li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="header">
+            <h2>TOK Homework 1</h2>
+        </div>
+        <div class="task-card">
+            <h2>TOK Homework 1</h2>
+            <p>Complete today's Class Notebook activity on Perspective.</p>
+            <div class="dropbox">
+                <h3>Dropbox</h3>
+                <p>No Dropbox Submissions</p>
+                <button>Upload Submission</button>
+            </div>
+            <div class="discussions">
+                <h3>Discussions</h3>
+                <p>No Discussions</p>
+                <button>Create Discussion</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

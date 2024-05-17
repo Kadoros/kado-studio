@@ -1,45 +1,117 @@
-.main-nav {
-  background-color: #fff; /* White background color */
-  padding: 10px 20px; /* Add padding to the top and bottom */
-  display: flex; /* Use flexbox for layout */
-  align-items: center; /* Align items vertically */
-  justify-content: space-between; /* Space items evenly */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
-.logo {
-  height: 50px; /* Adjust the height of the logo */
-  vertical-align: middle;
-  margin-right: 50px
+header {
+    background-color: #00274d;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
 }
 
-.main-menu {
-  list-style: none; /* Remove default list styles */
-  padding: 0; /* Remove default padding */
-  margin: 0; /* Remove default margin */
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
 }
 
-.main-menu li {
-  display: inline-block; /* Display menu items inline */
-  margin-right: 20px; /* Add spacing between menu items */
+header .donate {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
 }
 
-.main-menu li a {
-  color: #42A5FF; /* Blue text color */
-  text-decoration: none; /* Remove underline from links */
-  padding: 5px 10px; /* Add padding to links */
-  font-size: 20px;
+header .username {
+    color: white;
 }
 
-.main-menu li a:hover {
-  background-color: #f0f0f0; /* Light gray background color on hover */
+main {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
 }
 
-.login-btn {
-  background-color: #42A5FF; /* Blue background color */
-  color: #fff; /* White text color */
-  padding: 8px 16px; /* Add padding to the button */
-  border: none; /* Remove border */
-  border-radius: 4px; /* Add border radius */
-  text-decoration: none; /* Remove underline */
-  font-size: 20px;
+.sidebar {
+    background-color: #f6f6f6;
+    width: 250px;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+.course-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.course-nav .breadcrumb {
+    font-size: 0.8em;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.lesson-list {
+    list-style: none;
+    padding: 0;
+}
+
+.lesson-list li {
+    margin-bottom: 10px;
+}
+
+.lesson-list a {
+    text-decoration: none;
+    color: #0056b3;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.lesson-list a:hover,
+.lesson-list a.active {
+    background-color: #e2e6ea;
+    font-weight: bold;
+}
+
+.content {
+    padding: 40px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.content h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.content p {
+    margin: 10px 0;
+}
+
+.question-count {
+    font-weight: bold;
+}
+
+.start-button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.start-button:hover {
+    background-color: #005fa3;
 }
